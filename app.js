@@ -50,7 +50,7 @@ request.addEventListener('load',function(){
 const info=prompt('Enter a country name to see its data')
 getCountryData(info)
 //getCountryData('usa')
-//getCountryData('kenya')*/
+//getCountryData('kenya')
 
 const renderCountry=function(data,className=''){
 
@@ -116,4 +116,13 @@ setTimeout(()=>{
     },1000)
   },1000)
 },1000)
-//Callback makes code hard to understand and reason
+//Callback makes code hard to understand and reason*/
+
+//PROMISES=>an object used as a placeholder for the future result of an asynchronous operation
+// A promise can either be pending , fulfilled or rejected.
+//const request=new XMLHttpRequest();
+ // request.open('GET',`https://restcountries.com/v2/name/${country}`)
+ // request.send();
+
+ const request=fetch(`https://restcountries.com/v2/name/portugal`);
+ console.log(request)
