@@ -116,3 +116,4 @@ setTimeout(()=>{
     },1000)
   },1000)
 },1000)
+//Callback makes code hard to understand and reason
