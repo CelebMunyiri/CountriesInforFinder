@@ -133,7 +133,7 @@ setTimeout(()=>{
     },1000)
   },1000)
 },1000)
-//Callback makes code hard to understand and reason*/
+//Callback makes code hard to understand and reason
 
 //PROMISES=>an object used as a placeholder for the future result of an asynchronous operation
 // A promise can either be pending , fulfilled or rejected.
@@ -148,7 +148,24 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
   ).then((data)=>renderCountry(data[0]))
 
  }
- getCountryData('portugal');
+ getCountryData('portugal');*/
 
  //CHAINING PROMISES
- 
+ const getCountryData=function(country){
+  
+  //Country 1
+  fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.json()
+    ).then(data=> {
+    renderCountry(data[0])
+    const neighbour=data[0].borders[0]
+    if(!neighbour) return;
+
+    //Country 2
+    return fetch(`https://restcountries.com/v2/alpha/${neighbour}`)
+ })
+ .then(response=>response.json())
+ .then(data=>renderCountry(data,'neighbour'))
+  
+   };
+
+getCountryData('kenya')
