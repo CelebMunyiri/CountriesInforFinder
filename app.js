@@ -155,7 +155,7 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
   
   //Country 1
   fetch(`https://restcountries.com/v2/name/${country}`)
-  .then((response)=>response.json()
+  .then(response=>response.json(),err=>alert(err)
     )
     .then(data=> {
     renderCountry(data[0])
@@ -165,11 +165,14 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
     //Country 2
     return fetch(`https://restcountries.com/v2/alpha/${neighbour}`)
  })
- .then(response=>response.json())
+ .then(response=>response.json(),err=>alert(err))
  .then(data=>renderCountry(data,'neighbour'))
   
    };
 
-getCountryData('kenya')
+//getCountryData('kenya')
 
 //HANDLING REJECTED PROMISES
+btn.addEventListener('click',function(){
+  getCountryData('kenya')
+})
