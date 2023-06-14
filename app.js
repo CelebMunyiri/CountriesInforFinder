@@ -149,3 +149,6 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
 
  }
  getCountryData('portugal');
+
+ //CHAINING PROMISES
+ 
