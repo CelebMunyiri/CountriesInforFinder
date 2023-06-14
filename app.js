@@ -17,12 +17,12 @@ const renderCountry=function(data,className=''){
           </article>`;
   
            countriesContainer.insertAdjacentHTML('beforeend',html)
-          countriesContainer.style.opacity=1;
+          //countriesContainer.style.opacity=1;
 }
 
 const renderError=function(msg){
   countriesContainer.insertAdjacentText('beforeend',msg);
-  countriesContainer.style.opacity=1
+ // countriesContainer.style.opacity=1
 
  }
 //Async js are used to make ajax calls to API's
@@ -182,7 +182,9 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
 
 })
 //USING FINALLY METHOD
-.finally
+.finally(()=>{
+  countriesContainer.style.opacity=1;
+})
   
    };
 
