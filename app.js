@@ -181,6 +181,8 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
   renderError(`Something went wrong , ${err.message}  Try again`)
 
 })
+//USING FINALLY METHOD
+.finally
   
    };
 
