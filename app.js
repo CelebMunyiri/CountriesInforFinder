@@ -19,6 +19,12 @@ const renderCountry=function(data,className=''){
            countriesContainer.insertAdjacentHTML('beforeend',html)
           countriesContainer.style.opacity=1;
 }
+
+const renderError=function(msg){
+  countriesContainer.insertAdjacentText('beforeend',msg);
+  countriesContainer.style.opacity=1
+
+ }
 //Async js are used to make ajax calls to API's
 /*
 const p=document.querySelector(".p");
@@ -150,12 +156,15 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
  }
  getCountryData('portugal');*/
 
+
  //CHAINING PROMISES
+
+ 
  const getCountryData=function(country){
   
   //Country 1
   fetch(`https://restcountries.com/v2/name/${country}`)
-  .then(response=>response.json(),err=>alert(err)
+  .then(response=>response.json()
     )
     .then(data=> {
     renderCountry(data[0])
@@ -165,8 +174,13 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
     //Country 2
     return fetch(`https://restcountries.com/v2/alpha/${neighbour}`)
  })
- .then(response=>response.json(),err=>alert(err))
+ .then(response=>response.json())
  .then(data=>renderCountry(data,'neighbour'))
+ .catch(err=>{
+  console.log(`${err} wtffff`)
+  renderError(`Something went wrong , ${err.message}  Try again`)
+
+})
   
    };
 
