@@ -154,8 +154,10 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
  const getCountryData=function(country){
   
   //Country 1
-  fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.json()
-    ).then(data=> {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+  .then((response)=>response.json()
+    )
+    .then(data=> {
     renderCountry(data[0])
     const neighbour=data[0].borders[0]
     if(!neighbour) return;
@@ -169,3 +171,5 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
    };
 
 getCountryData('kenya')
+
+//HANDLING REJECTED PROMISES
