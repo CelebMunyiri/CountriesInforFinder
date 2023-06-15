@@ -192,5 +192,6 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
 
 //HANDLING REJECTED PROMISES
 btn.addEventListener('click',function(){
-  getCountryData('kenya')
+  getCountryData('keni')
 })
+//THROWING ERRORS MANUALLY
