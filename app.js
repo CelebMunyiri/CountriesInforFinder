@@ -174,13 +174,18 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
   })
     .then(data=> {
     renderCountry(data[0])
-    const neighbour=data[0].borders[0]
+    //const neighbour=data[0].borders[0]
+    const neighbour='fgfgfg'
     if(!neighbour) return;
 
     //Country 2
     return fetch(`https://restcountries.com/v2/alpha/${neighbour}`)
  })
- .then(response=>response.json())
+ .then(response=>{
+  if(!response.ok)
+  throw new Error(`Neighbour not found(${response.status})`)
+  
+  response.json()})
  .then(data=>renderCountry(data,'neighbour'))
  .catch(err=>{
   console.log(`${err} wtffff`)
@@ -198,7 +203,7 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
 
 //HANDLING REJECTED PROMISES
 btn.addEventListener('click',function(){
-  getCountryData('fgfgfgg')
+  getCountryData('portugal')
 })
 //THROWING ERRORS MANUALLY
 //Throwing errors is a good practise
