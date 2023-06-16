@@ -157,7 +157,7 @@ fetch(`https://restcountries.com/v2/name/${country}`).then((response)=>response.
  getCountryData('portugal');*/
 
 
- //CHAINING PROMISES
+ //CREATING A HELPER FUNCTION BELOW
 
  
  const getCountryData=function(country){
